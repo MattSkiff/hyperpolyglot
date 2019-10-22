@@ -1476,7 +1476,13 @@ n = 0 _
 for i = 1:1000*1000 _
 @<&nbsp;&nbsp;>@n = n + 1; _
 end _
-toc|| ||import timeit _
+toc|| start_time <- Sys.time() _
+for (i  in 1:1000*1000) { _
+@<&nbsp;&nbsp;>@n = n + 1 _
+} _
+end_time <- Sys.time() _
+end_time - start_time _
+||import timeit _
  _
 timeit.timeit('i += 1', _
 @<&nbsp;&nbsp;>@'i = 0', _
